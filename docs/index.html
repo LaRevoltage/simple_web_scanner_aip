@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>scanner</title>
+    <meta name="generator" content="pydoctor 25.10.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+    
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          scanner <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="index.html" class="internal-link" title="This module">scanner</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_cors" class="internal-link" title="scanner.check_cors">check<wbr></wbr>_cors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_csp" class="internal-link" title="scanner.check_csp">check<wbr></wbr>_csp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_insecure_directories" class="internal-link" title="scanner.check_insecure_directories">check<wbr></wbr>_insecure<wbr></wbr>_directories</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_security_headers" class="internal-link" title="scanner.check_security_headers">check<wbr></wbr>_security<wbr></wbr>_headers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#crawl_and_scan" class="internal-link" title="scanner.crawl_and_scan">crawl<wbr></wbr>_and<wbr></wbr>_scan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#gather_basic_recon" class="internal-link" title="scanner.gather_basic_recon">gather<wbr></wbr>_basic<wbr></wbr>_recon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#main" class="internal-link" title="scanner.main">main</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#visited_urls" class="internal-link" title="scanner.visited_urls">visited<wbr></wbr>_urls</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapse-sidebar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <main class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">scanner</a></code></code></h1>
+          <div id="show-private">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Простой сканер веб-уязвимостей.</p>
+<p>Этот модуль предоставляет инструменты для сканирования веб-приложений
+на наличие простых неправильных конфигураций безопасности.</p>
+</div>
+        </div>
+
+        <div id="split-tables">
+          <table class="children sortable" id="id1">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#check_cors" class="internal-link" title="scanner.check_cors">check<wbr></wbr>_cors</a></code></td>
+    <td>Проверяет конфигурацию CORS на наличие небезопасных настроек.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#check_csp" class="internal-link" title="scanner.check_csp">check<wbr></wbr>_csp</a></code></td>
+    <td>Проверяет Content Security Policy на наличие небезопасных директив.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#check_insecure_directories" class="internal-link" title="scanner.check_insecure_directories">check<wbr></wbr>_insecure<wbr></wbr>_directories</a></code></td>
+    <td>Проверяет наличие чувствительных директорий и файлов.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#check_security_headers" class="internal-link" title="scanner.check_security_headers">check<wbr></wbr>_security<wbr></wbr>_headers</a></code></td>
+    <td>Проверяет наличие важных заголовков безопасности HTTP.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#crawl_and_scan" class="internal-link" title="scanner.crawl_and_scan">crawl<wbr></wbr>_and<wbr></wbr>_scan</a></code></td>
+    <td>Выполняет краулинг и сканирование веб-сайта на уязвимости.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#gather_basic_recon" class="internal-link" title="scanner.gather_basic_recon">gather<wbr></wbr>_basic<wbr></wbr>_recon</a></code></td>
+    <td>Собирает базовую информацию о веб-приложении.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#main" class="internal-link" title="scanner.main">main</a></code></td>
+    <td>Точка входа для запуска сканера из командной строки.</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#visited_urls" class="internal-link" title="scanner.visited_urls">visited<wbr></wbr>_urls</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="child-list">
+          <div class="basefunction">
+  
+  
+  <a name="scanner.check_cors">
+    
+  </a>
+  <a name="check_cors">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">check_cors</span><span class="function-signature">(<span class="rst-sig-param">url, </span><span class="rst-sig-param">headers</span>):</span>
+    
+    <a class="headerLink" href="#check_cors" title="scanner.check_cors">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Проверяет конфигурацию CORS на наличие небезопасных настроек.</p>
+<dl class="rst-docutils">
+<dt>Args:</dt>
+<dd>url (str): URL для проверки.
+headers (dict): Словарь HTTP заголовков ответа.</dd>
+<dt>Returns:</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>list: Список строк с описанием проблем CORS.</dt>
+<dd>Пустой список, если проблем не обнаружено.</dd>
+</dl>
+</dd>
+<dt>Example:</dt>
+<dd><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>headers = {<span class="py-string">"Access-Control-Allow-Origin"</span>: <span class="py-string">"*"</span>}
+<span class="py-prompt">&gt;&gt;&gt; </span>issues = check_cors(<span class="py-string">"https://example.com"</span>, headers)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(issues)
+<span class="py-output">["CORS: Access-Control-Allow-Origin is set to '*' (wildcard)"]</span>
+</pre></dd>
+</dl>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="scanner.check_csp">
+    
+  </a>
+  <a name="check_csp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">check_csp</span><span class="function-signature">(<span class="rst-sig-param">url, </span><span class="rst-sig-param">headers</span>):</span>
+    
+    <a class="headerLink" href="#check_csp" title="scanner.check_csp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Проверяет Content Security Policy на наличие небезопасных директив.</p>
+<dl class="rst-docutils">
+<dt>Args:</dt>
+<dd>url (str): URL для проверки.
+headers (dict): Словарь HTTP заголовков ответа.</dd>
+<dt>Returns:</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>list: Список строк с описанием проблем CSP.</dt>
+<dd>Пустой список, если CSP отсутствует или настроен безопасно.</dd>
+</dl>
+</dd>
+<dt>Example:</dt>
+<dd><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>headers = {<span class="py-string">"Content-Security-Policy"</span>: <span class="py-string">"default-src 'unsafe-inline'"</span>}
+<span class="py-prompt">&gt;&gt;&gt; </span>issues = check_csp(<span class="py-string">"https://example.com"</span>, headers)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(issues)
+<span class="py-output">["CSP: 'unsafe-inline' detected"]</span>
+</pre></dd>
+</dl>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="scanner.check_insecure_directories">
+    
+  </a>
+  <a name="check_insecure_directories">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">check_insecure_directories</span><span class="function-signature">(<span class="rst-sig-param">url</span>):</span>
+    
+    <a class="headerLink" href="#check_insecure_directories" title="scanner.check_insecure_directories">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Проверяет наличие чувствительных директорий и файлов.</p>
+<p>Выполняет HEAD запросы к списку потенциально чувствительных путей
+для обнаружения случайно доступных файлов и директорий.</p>
+<dl class="rst-docutils">
+<dt>Args:</dt>
+<dd>url (str): Базовый URL для проверки.</dd>
+<dt>Returns:</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>list: Список строк с описанием найденных чувствительных директорий/файлов.</dt>
+<dd>Пустой список, если ничего не найдено.</dd>
+</dl>
+</dd>
+<dt>Example:</dt>
+<dd><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>issues = check_insecure_directories(<span class="py-string">"https://example.com"</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(issues)
+<span class="py-output">['Insecure directory/file found: https://example.com/.git/']</span>
+</pre></dd>
+</dl>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="scanner.check_security_headers">
+    
+  </a>
+  <a name="check_security_headers">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">check_security_headers</span><span class="function-signature">(<span class="rst-sig-param">url, </span><span class="rst-sig-param">headers</span>):</span>
+    
+    <a class="headerLink" href="#check_security_headers" title="scanner.check_security_headers">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Проверяет наличие важных заголовков безопасности HTTP.</p>
+<dl class="rst-docutils">
+<dt>Args:</dt>
+<dd>url (str): URL для проверки.
+headers (dict): Словарь HTTP заголовков ответа.</dd>
+<dt>Returns:</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>list: Список строк с описанием отсутствующих заголовков безопасности.</dt>
+<dd>Пустой список, если все заголовки присутствуют.</dd>
+</dl>
+</dd>
+<dt>Example:</dt>
+<dd><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>headers = {<span class="py-string">"X-Frame-Options"</span>: <span class="py-string">"DENY"</span>}
+<span class="py-prompt">&gt;&gt;&gt; </span>issues = check_security_headers(<span class="py-string">"https://example.com"</span>, headers)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(issues)
+<span class="py-output">['Missing security header: X-Content-Type-Options', ...]</span>
+</pre></dd>
+</dl>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="scanner.crawl_and_scan">
+    
+  </a>
+  <a name="crawl_and_scan">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">crawl_and_scan</span><span class="function-signature">(<span class="rst-sig-param">start_url, </span><span class="rst-sig-param">max_pages=10</span>):</span>
+    
+    <a class="headerLink" href="#crawl_and_scan" title="scanner.crawl_and_scan">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Выполняет краулинг и сканирование веб-сайта на уязвимости.</p>
+<p>Обходит страницы сайта, начиная с start_url, и проверяет каждую страницу
+на наличие проблем безопасности. Ограничивается одним доменом и максимальным
+количеством страниц.</p>
+<dl class="rst-docutils">
+<dt>Args:</dt>
+<dd><p class="rst-first">start_url (str): Начальный URL для сканирования.
+max_pages (int, optional): Максимальное количество страниц для обхода.</p>
+<blockquote class="rst-last">
+По умолчанию 10.</blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd>None: Функция выводит результаты в консоль.</dd>
+<dt>Example:</dt>
+<dd><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>crawl_and_scan(<span class="py-string">"https://example.com"</span>, max_pages=5)
+<span class="py-output">Starting scan on https://example.com</span>
+<span class="py-output">Target domain: example.com</span>
+<span class="py-output">--------------------------------------------------</span>
+<span class="py-output">[*] Gathering recon for https://example.com</span>
+<span class="py-output">[+] Server: nginx/1.18.0</span>
+<span class="py-output">[+] Technologies: WordPress 5.8, jQuery</span>
+<span class="py-output">[*] Checking headers for https://example.com</span>
+<span class="py-output">[!] Missing security header: X-Frame-Options</span>
+<span class="py-output">...</span>
+<span class="py-output">--------------------------------------------------</span>
+<span class="py-output">Scan complete. Visited 5 pages.</span>
+</pre></dd>
+</dl>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="scanner.gather_basic_recon">
+    
+  </a>
+  <a name="gather_basic_recon">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">gather_basic_recon</span><span class="function-signature">(<span class="rst-sig-param">url</span>):</span>
+    
+    <a class="headerLink" href="#gather_basic_recon" title="scanner.gather_basic_recon">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Собирает базовую информацию о веб-приложении.</p>
+<p>Выполняет HTTP запрос и извлекает метаданные о веб-приложении,
+включая информацию о сервере, используемых технологиях, структуре страницы.</p>
+<dl class="rst-docutils">
+<dt>Args:</dt>
+<dd>url (str): URL для анализа.</dd>
+<dt>Returns:</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>dict: Словарь с информацией о веб-приложении, содержащий:</dt>
+<dd><ul class="rst-simple rst-first rst-last">
+<li>url (str): Целевой URL.</li>
+<li>server (str or None): Информация о сервере из заголовка Server.</li>
+<li>powered_by (str or None): Технология из заголовка X-Powered-By.</li>
+<li>technologies (list): Список обнаруженных технологий.</li>
+<li>status_code (int or None): HTTP статус код ответа.</li>
+<li>response_time (float or None): Время ответа в секундах.</li>
+<li>title (str or None): Заголовок страницы.</li>
+<li>forms_count (int): Количество форм на странице.</li>
+<li>links_count (int): Количество ссылок на странице.</li>
+<li>scripts_count (int): Количество скриптов на странице.</li>
+<li>cookies (list): Список словарей с информацией о cookies.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Example:</dt>
+<dd><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>info = gather_basic_recon(<span class="py-string">"https://example.com"</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(info[<span class="py-string">"server"</span>])
+<span class="py-output">'nginx/1.18.0'</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(info[<span class="py-string">"technologies"</span>])
+<span class="py-output">['WordPress 5.8', 'jQuery']</span>
+</pre></dd>
+</dl>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="scanner.main">
+    
+  </a>
+  <a name="main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">main</span><span class="function-signature">():</span>
+    
+    <a class="headerLink" href="#main" title="scanner.main">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Точка входа для запуска сканера из командной строки.</p>
+<p>Парсит аргументы командной строки и запускает сканирование.</p>
+<dl class="rst-docutils">
+<dt>Example:</dt>
+<dd>$ python scanner.py <a class="rst-external rst-reference" href="https://example.com" target="_top">https://example.com</a> --max-pages 20</dd>
+</dl>
+</div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="scanner.visited_urls">
+    
+  </a>
+  <a name="visited_urls">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">visited_urls</span>: <code>set</code> =
+    
+    <a class="headerLink" href="#visited_urls" title="scanner.visited_urls">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </main>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container-fluid">
+    <a href="index.html">API Documentation</a> for scanner,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    25.10.1 at 2025-12-19 07:03:49.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
