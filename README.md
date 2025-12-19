@@ -44,7 +44,7 @@ python scanner.py <url> <max-pages>
 ```bash
 python scanner.py http://example.com 20
 ```
-![Example](docs/example.png)
+![Example](docs/example2.png)
 ## Тестирование
 
 Запустите тесты с помощью pytest:
