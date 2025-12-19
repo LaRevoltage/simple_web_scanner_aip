@@ -5,7 +5,7 @@
 на наличие простых неправильных конфигураций безопасности.
 """
 
-import argparse
+import sys
 import requests
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
@@ -330,21 +330,35 @@ def crawl_and_scan(start_url, max_pages=10):
 def main():
     """Точка входа для запуска сканера из командной строки.
 
-    Парсит аргументы командной строки и запускает сканирование.
+    Принимает аргументы командной строки и запускает сканирование.
+
+    Args:
+        sys.argv[1]: URL для сканирования (обязательный).
+        sys.argv[2]: Максимальное количество страниц (опциональный, по умолчанию 10).
 
     Example:
-        $ python scanner.py https://example.com --max-pages 20
+        $ python scanner.py https://example.com
+        $ python scanner.py https://example.com 20
     """
-    parser = argparse.ArgumentParser(description="Simple Web Vulnerability Scanner")
-    parser.add_argument("url", help="Target URL to scan")
-    parser.add_argument(
-        "--max-pages", type=int, default=10, help="Maximum pages to crawl"
-    )
-    args = parser.parse_args()
-    target_url = args.url
+    if len(sys.argv) < 2:
+        print("Usage: python scanner.py <url> [max_pages]")
+        print("Example: python scanner.py https://example.com 20")
+        sys.exit(1)
+    
+    target_url = sys.argv[1]
+    max_pages = 10
+    
+    if len(sys.argv) >= 3:
+        try:
+            max_pages = int(sys.argv[2])
+        except ValueError:
+            print(f"Error: max_pages must be an integer, got '{sys.argv[2]}'")
+            sys.exit(1)
+    
     if not target_url.startswith("http"):
         target_url = "http://" + target_url
-    crawl_and_scan(target_url, args.max_pages)
+    
+    crawl_and_scan(target_url, max_pages)
 
 
 if __name__ == "__main__":
