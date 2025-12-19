@@ -52,13 +52,6 @@ python scanner.py http://example.com --max-pages 20
 ```bash
 pytest test_scanner.py -v
 ```
-
-Запуск тестов с покрытием кода:
-
-```bash
-pytest test_scanner.py --cov=scanner --cov-report=html
-```
-
 ### Структура тестов
 
 Тесты организованы в следующие классы:
