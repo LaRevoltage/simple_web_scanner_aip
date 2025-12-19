@@ -36,13 +36,13 @@
 Запустите сканер из командной строки:
 
 ```bash
-python scanner.py <url> [--max-pages <число>]
+python scanner.py <url> <max-pages>
 ```
 
 Пример:
 
 ```bash
-python scanner.py http://example.com --max-pages 20
+python scanner.py http://example.com 20
 ```
 ![Example](docs/example.png)
 ## Тестирование
