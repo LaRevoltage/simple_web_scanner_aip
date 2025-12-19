@@ -10,11 +10,13 @@ from scanner import (
     gather_basic_recon,
     visited_urls
 )
-# Тесты
+
+
 class TestGatherBasicRecon:
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_basic_recon_success(self, mock_get, capsys):
+    def test_basic_recon_success(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {
@@ -53,11 +55,11 @@ class TestGatherBasicRecon:
         assert "WordPress 5.8" in result["technologies"]
         assert "jQuery" in result["technologies"]
         assert result["response_time"] is not None
-        captured = capsys.readouterr()
-        assert "[*] Gathering recon for https://example.com" in captured.out
+        mock_print.assert_called_with("[*] Gathering recon for https://example.com")
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_with_cookies(self, mock_get):
+    def test_recon_with_cookies(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -79,8 +81,9 @@ class TestGatherBasicRecon:
         assert {"name": "session_id", "value": "abc123"} in result["cookies"]
         assert {"name": "user_token", "value": "xyz789"} in result["cookies"]
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_detects_react(self, mock_get):
+    def test_recon_detects_react(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -98,8 +101,9 @@ class TestGatherBasicRecon:
         
         assert "React" in result["technologies"]
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_detects_angular(self, mock_get):
+    def test_recon_detects_angular(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -117,8 +121,9 @@ class TestGatherBasicRecon:
         
         assert "Angular" in result["technologies"]
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_detects_vue(self, mock_get):
+    def test_recon_detects_vue(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -136,8 +141,9 @@ class TestGatherBasicRecon:
         
         assert "Vue.js" in result["technologies"]
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_non_html_content(self, mock_get):
+    def test_recon_non_html_content(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {
@@ -156,8 +162,9 @@ class TestGatherBasicRecon:
         assert result["forms_count"] == 0
         assert result["links_count"] == 0
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_no_server_header(self, mock_get):
+    def test_recon_no_server_header(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -170,8 +177,9 @@ class TestGatherBasicRecon:
         assert result["server"] is None
         assert result["powered_by"] is None
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_request_exception(self, mock_get, capsys):
+    def test_recon_request_exception(self, mock_get, mock_print):
         mock_get.side_effect = requests.RequestException("Connection error")
         
         result = gather_basic_recon("https://example.com")
@@ -179,11 +187,12 @@ class TestGatherBasicRecon:
         assert result["url"] == "https://example.com"
         assert result["status_code"] is None
         assert result["server"] is None
-        captured = capsys.readouterr()
-        assert "[Error] Could not gather recon for https://example.com" in captured.out
+        print_calls = [str(call) for call in mock_print.call_args_list]
+        assert any("[Error] Could not gather recon for https://example.com" in str(call) for call in print_calls)
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_no_title(self, mock_get):
+    def test_recon_no_title(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -195,8 +204,9 @@ class TestGatherBasicRecon:
         
         assert result["title"] is None
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_multiple_technologies(self, mock_get):
+    def test_recon_multiple_technologies(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -221,8 +231,9 @@ class TestGatherBasicRecon:
         assert "jQuery" in result["technologies"]
         assert "React" in result["technologies"]
     
+    @patch('builtins.print')
     @patch('scanner.requests.get')
-    def test_recon_response_time_measured(self, mock_get):
+    def test_recon_response_time_measured(self, mock_get, mock_print):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.headers = {"Content-Type": "text/html"}
@@ -235,6 +246,7 @@ class TestGatherBasicRecon:
         assert result["response_time"] is not None
         assert isinstance(result["response_time"], float)
         assert result["response_time"] >= 0
+
 
 class TestCheckSecurityHeaders:
     
@@ -402,12 +414,13 @@ class TestCrawlAndScan:
         visited_urls.clear()
     
     @patch('builtins.print')
+    @patch('scanner.gather_basic_recon')
     @patch('scanner.requests.get')
     @patch('scanner.check_security_headers')
     @patch('scanner.check_cors')
     @patch('scanner.check_csp')
     @patch('scanner.check_insecure_directories')
-    def test_basic_crawl(self, mock_insecure, mock_csp, mock_cors, mock_headers, mock_get, mock_print):
+    def test_basic_crawl(self, mock_insecure, mock_csp, mock_cors, mock_headers, mock_get, mock_recon, mock_print):
         mock_response = Mock()
         mock_response.headers = {
             "Content-Type": "text/html",
@@ -415,6 +428,20 @@ class TestCrawlAndScan:
         }
         mock_response.text = '<html><body><a href="/page2">Link</a></body></html>'
         mock_get.return_value = mock_response
+        
+        mock_recon.return_value = {
+            "url": "https://example.com",
+            "server": None,
+            "powered_by": None,
+            "technologies": [],
+            "status_code": 200,
+            "response_time": 0.1,
+            "title": None,
+            "forms_count": 0,
+            "links_count": 0,
+            "scripts_count": 0,
+            "cookies": []
+        }
         
         mock_headers.return_value = []
         mock_cors.return_value = []
@@ -424,29 +451,46 @@ class TestCrawlAndScan:
         crawl_and_scan("https://example.com", max_pages=1)
         
         assert mock_get.called
+        assert mock_recon.called
         assert mock_headers.called
         assert mock_cors.called
         assert mock_csp.called
         assert mock_insecure.called
     
     @patch('builtins.print')
+    @patch('scanner.gather_basic_recon')
     @patch('scanner.requests.get')
-    def test_non_html_content_skipped(self, mock_get, mock_print):
+    def test_non_html_content_skipped(self, mock_get, mock_recon, mock_print):
         mock_response = Mock()
         mock_response.headers = {"Content-Type": "application/json"}
         mock_get.return_value = mock_response
+        
+        mock_recon.return_value = {
+            "url": "https://example.com",
+            "server": None,
+            "powered_by": None,
+            "technologies": [],
+            "status_code": 200,
+            "response_time": 0.1,
+            "title": None,
+            "forms_count": 0,
+            "links_count": 0,
+            "scripts_count": 0,
+            "cookies": []
+        }
         
         crawl_and_scan("https://example.com", max_pages=1)
         
         assert "https://example.com" in visited_urls
     
     @patch('builtins.print')
+    @patch('scanner.gather_basic_recon')
     @patch('scanner.requests.get')
     @patch('scanner.check_security_headers')
     @patch('scanner.check_cors')
     @patch('scanner.check_csp')
     @patch('scanner.check_insecure_directories')
-    def test_multiple_pages_crawl(self, mock_insecure, mock_csp, mock_cors, mock_headers, mock_get, mock_print):
+    def test_multiple_pages_crawl(self, mock_insecure, mock_csp, mock_cors, mock_headers, mock_get, mock_recon, mock_print):
         def get_side_effect(url, timeout):
             mock_response = Mock()
             mock_response.headers = {"Content-Type": "text/html"}
@@ -457,6 +501,19 @@ class TestCrawlAndScan:
             return mock_response
         
         mock_get.side_effect = get_side_effect
+        mock_recon.return_value = {
+            "url": "https://example.com",
+            "server": None,
+            "powered_by": None,
+            "technologies": [],
+            "status_code": 200,
+            "response_time": 0.1,
+            "title": None,
+            "forms_count": 0,
+            "links_count": 0,
+            "scripts_count": 0,
+            "cookies": []
+        }
         mock_headers.return_value = []
         mock_cors.return_value = []
         mock_csp.return_value = []
@@ -467,9 +524,23 @@ class TestCrawlAndScan:
         assert len(visited_urls) == 2
     
     @patch('builtins.print')
+    @patch('scanner.gather_basic_recon')
     @patch('scanner.requests.get')
-    def test_request_exception_handling(self, mock_get, mock_print):
+    def test_request_exception_handling(self, mock_get, mock_recon, mock_print):
         mock_get.side_effect = requests.RequestException("Connection error")
+        mock_recon.return_value = {
+            "url": "https://example.com",
+            "server": None,
+            "powered_by": None,
+            "technologies": [],
+            "status_code": 200,
+            "response_time": 0.1,
+            "title": None,
+            "forms_count": 0,
+            "links_count": 0,
+            "scripts_count": 0,
+            "cookies": []
+        }
         
         crawl_and_scan("https://example.com", max_pages=1)
         
